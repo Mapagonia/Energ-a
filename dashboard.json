@@ -1,0 +1,240 @@
+{
+  "version": 2,
+  "title": "Centrales de Generación Eléctrica",
+  "subtitle": "Datos actualizados desde QGIS",
+  "theme": {
+    "primary": "#ff007f",
+    "dark": true
+  },
+  "layerAliases": {
+    "centrales-de-generaci-n-el-ctrica": "Centrales de Generación Eléctrica"
+  },
+  "layerStyles": {
+    "centrales-de-generaci-n-el-ctrica": {
+      "mode": "categorized",
+      "field": "TECNOLOGIA",
+      "color": "#ef2929",
+      "strokeColor": "#ffffff",
+      "strokeWidth": 1.0,
+      "fillOpacity": 0.78,
+      "categories": [
+        {
+          "color": "#71bc7e",
+          "label": "Biogas",
+          "value": "Biogas"
+        },
+        {
+          "color": "#406eb4",
+          "label": "Biomasa",
+          "value": "Biomasa"
+        },
+        {
+          "color": "#d5de72",
+          "label": "Eólica",
+          "value": "Eólica"
+        },
+        {
+          "color": "#e7a251",
+          "label": "Fotovoltaica",
+          "value": "Fotovoltaica"
+        },
+        {
+          "color": "#85cdd8",
+          "label": "Hidroeléctrica",
+          "value": "Hidroeléctrica"
+        },
+        {
+          "color": "#72b730",
+          "label": "Hidroeléctrica (Menor a 50 Mw)",
+          "value": "Hidroeléctrica (Menor a 50 Mw)"
+        },
+        {
+          "color": "#793b8e",
+          "label": "Nuclear",
+          "value": "Nuclear"
+        },
+        {
+          "color": "#e33240",
+          "label": "Térmica",
+          "value": "Térmica"
+        }
+      ]
+    }
+  },
+  "layerEncodings": {},
+  "widgets": [
+    {
+      "type": "kpi",
+      "title": "Total Centrales de Generación Eléctrica",
+      "layer": "centrales-de-generaci-n-el-ctrica",
+      "operation": "count",
+      "field": "",
+      "value": "",
+      "span": 7,
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "w": 7,
+        "h": 2
+      },
+      "relationLayer": ""
+    },
+    {
+      "type": "filter",
+      "title": "Filtrar por NOMBRE",
+      "layer": "centrales-de-generaci-n-el-ctrica",
+      "field": "PROVINCIA",
+      "value": "",
+      "operation": "count",
+      "span": 5,
+      "layout": {
+        "x": 7,
+        "y": 0,
+        "w": 5,
+        "h": 2
+      },
+      "relationLayer": ""
+    },
+    {
+      "type": "map",
+      "title": "Mapa interactivo",
+      "layer": "centrales-de-generaci-n-el-ctrica",
+      "field": "",
+      "value": "",
+      "operation": "count",
+      "span": 7,
+      "layout": {
+        "x": 0,
+        "y": 2,
+        "w": 7,
+        "h": 7
+      },
+      "relationLayer": ""
+    },
+    {
+      "type": "table",
+      "title": "Detalle de registros",
+      "layer": "centrales-de-generaci-n-el-ctrica",
+      "field": "",
+      "value": "",
+      "operation": "count",
+      "span": 12,
+      "layout": {
+        "x": 0,
+        "y": 9,
+        "w": 12,
+        "h": 4
+      },
+      "relationLayer": ""
+    },
+    {
+      "type": "pie",
+      "title": "Tecnología",
+      "layer": "centrales-de-generaci-n-el-ctrica",
+      "field": "TECNOLOGIA",
+      "value": "",
+      "operation": "count",
+      "span": 5,
+      "layout": {
+        "x": 7,
+        "y": 2,
+        "w": 5,
+        "h": 4
+      },
+      "relationLayer": ""
+    },
+    {
+      "type": "bar",
+      "title": "Potencia",
+      "layer": "centrales-de-generaci-n-el-ctrica",
+      "field": "POTENCIA_I",
+      "value": "",
+      "operation": "count",
+      "span": 5,
+      "layout": {
+        "x": 7,
+        "y": 6,
+        "w": 5,
+        "h": 3
+      },
+      "relationLayer": ""
+    }
+  ],
+  "layers": [
+    {
+      "id": "centrales-de-generaci-n-el-ctrica",
+      "name": "Centrales de Generación Eléctrica",
+      "sourceName": "Centrales de Generación Eléctrica",
+      "geometry": 0,
+      "fields": [
+        "NOMBRE",
+        "CENTRAL",
+        "TECNOLOGIA",
+        "NOMBRE_AGE",
+        "TECNOLO_01",
+        "TECNOLO_02",
+        "POTENCIA_I",
+        "PROVINCIA",
+        "DEPARTAMEN",
+        "AGLOMERACI",
+        "SISTEMA",
+        "PAH",
+        "ID_RENOVAR",
+        "RESOLUCION",
+        "FUENTE",
+        "GEOJSON"
+      ],
+      "style": {
+        "mode": "categorized",
+        "field": "TECNOLOGIA",
+        "color": "#ef2929",
+        "strokeColor": "#ffffff",
+        "strokeWidth": 1.0,
+        "fillOpacity": 0.78,
+        "categories": [
+          {
+            "color": "#71bc7e",
+            "label": "Biogas",
+            "value": "Biogas"
+          },
+          {
+            "color": "#406eb4",
+            "label": "Biomasa",
+            "value": "Biomasa"
+          },
+          {
+            "color": "#d5de72",
+            "label": "Eólica",
+            "value": "Eólica"
+          },
+          {
+            "color": "#e7a251",
+            "label": "Fotovoltaica",
+            "value": "Fotovoltaica"
+          },
+          {
+            "color": "#85cdd8",
+            "label": "Hidroeléctrica",
+            "value": "Hidroeléctrica"
+          },
+          {
+            "color": "#72b730",
+            "label": "Hidroeléctrica (Menor a 50 Mw)",
+            "value": "Hidroeléctrica (Menor a 50 Mw)"
+          },
+          {
+            "color": "#793b8e",
+            "label": "Nuclear",
+            "value": "Nuclear"
+          },
+          {
+            "color": "#e33240",
+            "label": "Térmica",
+            "value": "Térmica"
+          }
+        ]
+      },
+      "encoding": "automatic"
+    }
+  ]
+}
