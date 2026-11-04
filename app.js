@@ -118,7 +118,7 @@
       return `<div class="filter-control"><label>${esc(w.title)}</label><select data-filter="${esc(id)}::${esc(w.field)}"><option value="">Todos los valores</option>${values.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join("")}</select></div>`;
     }).join("");
     document.querySelector("#app").innerHTML = `<div class="shell">
-      <aside class="sidebar"><div class="brand"><img class="brand-logo" src="assets/logo-gis-dev.png" alt="GIS Dev"><span>GeoDash <small>GIS Dev</small></span></div>
+    <aside class="sidebar"><div class="brand"><img class="brand-logo" src="assets/logo-gis-dev.png" alt="GIS Dev"><span>GeoDash <small>GIS Dev</small></span><button class="mobile-menu-close" aria-label="Cerrar menú">×</button></div>
         <div class="nav-title">SOBRE EL DASHBOARD</div>
         <div class="filter-control">${texto}</div>
         <div class="sidebar-bottom"><div class="logo-mapagonia"><img src="assets/logo-mapagonia.png"></div></div>
@@ -318,6 +318,7 @@
   function resetAll(){state.filters={};state.search="";state.selected=null;state.extentEnabled=false;state.extentBounds=null;render()}
   function bind(){
     document.querySelector(".mobile-menu").addEventListener("click",()=>document.querySelector(".sidebar").classList.toggle("open"));
+    document.querySelector(".mobile-menu-close").addEventListener("click",()=>document.querySelector(".sidebar").classList.remove("open"));
     let searchTimer; document.querySelector(".search").addEventListener("input",event=>{state.search=event.target.value;clearTimeout(searchTimer);searchTimer=setTimeout(()=>{render();renderSearchResults()},120)});
     document.querySelector(".search").addEventListener("focus",renderSearchResults);
     document.querySelector(".search-clear").addEventListener("click",()=>{state.search="";render()});
