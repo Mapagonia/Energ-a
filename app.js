@@ -186,11 +186,13 @@
   }
   function basemaps(){
     return {
-      "Calles":L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:20,attribution:"© OpenStreetMap"}),
+      "Calles":L.tileLayer('https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=pjVCWlKpnLmZSBjEBCnq', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        }),
       "Satelital":L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:20,attribution:"Tiles © Esri"}),
       "Topográfico":L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{maxZoom:17,attribution:"© OpenTopoMap"}),
-      "Dark":L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:20,attribution:"© CARTO · © OpenStreetMap"}),
-    };
+      };
   }
   function featureStyle(feature,layerId){
     const selected=state.selected===feature._gdsid, geom=feature.geometry?.type||"";
