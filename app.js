@@ -118,7 +118,7 @@
       <aside class="sidebar"><div class="brand"><img class="brand-logo" src="assets/logo-gis-dev.png" alt="GIS Dev"><span>GeoDash <small>GIS Dev</small></span></div>
         <div class="nav-title">SOBRE EL DASHBOARD</div>
         <div class="filter-control">${texto}</div>
-        <div class="sidebar-bottom"><label class="upload">＋ Cargar GeoJSON<input id="geoUpload" type="file" accept=".json,.geojson,application/geo+json"></label></div>
+        <div class="sidebar-bottom"><div class="logo-mapagonia"><img src="assets/logo-mapagonia.png"></div></div>
       </aside>
       <main class="main"><header class="topbar"><button class="mobile-menu" aria-label="Abrir menú">☰</button>
       <div class="title-block"><h1>${esc(config.title)}</h1><p>${esc(config.subtitle)}</p></div>
@@ -320,7 +320,7 @@
     document.querySelector(".theme-toggle").addEventListener("click",()=>{state.dark=!state.dark;document.body.classList.toggle("dark",state.dark);try{localStorage.setItem("gds-theme",state.dark?"dark":"light")}catch{}document.querySelector(".theme-toggle").textContent=state.dark?"☀":"◐";render()});
     document.querySelectorAll("[data-filter]").forEach(select=>select.addEventListener("change",event=>{state.filters[event.target.dataset.filter]=event.target.value;state.selected=null;render()}));
     document.querySelectorAll("[data-layer-toggle]").forEach(box=>box.addEventListener("change",event=>{event.target.checked?state.visible.add(event.target.dataset.layerToggle):state.visible.delete(event.target.dataset.layerToggle);render()}));
-    document.querySelector("#geoUpload").addEventListener("change",event=>{const file=event.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),id=`upload-${Date.now()}`;(data.features||[]).forEach((feature,index)=>feature._gdsid=`${id}:${index}`);data._meta={id,name:file.name.replace(/\.[^.]+$/,"") ,fields:Object.keys(data.features?.[0]?.properties||{})};layerData[id]=data;if(!Array.isArray(config.layers))config.layers=[];config.layers.push(data._meta);state.visible.add(id);shell();bind();render();toast("Capa añadida al dashboard")}catch{toast("El archivo no es un GeoJSON válido")}};reader.readAsText(file)});
+    //document.querySelector("#geoUpload").addEventListener("change",event=>{const file=event.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),id=`upload-${Date.now()}`;(data.features||[]).forEach((feature,index)=>feature._gdsid=`${id}:${index}`);data._meta={id,name:file.name.replace(/\.[^.]+$/,"") ,fields:Object.keys(data.features?.[0]?.properties||{})};layerData[id]=data;if(!Array.isArray(config.layers))config.layers=[];config.layers.push(data._meta);state.visible.add(id);shell();bind();render();toast("Capa añadida al dashboard")}catch{toast("El archivo no es un GeoJSON válido")}};reader.readAsText(file)});
   }
   function toast(message){const node=document.createElement("div");node.className="toast";node.textContent=message;document.body.appendChild(node);setTimeout(()=>node.remove(),2800)}
   shell();bind();render();
