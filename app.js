@@ -120,8 +120,8 @@
     document.querySelector("#app").innerHTML = `<div class="shell">
     <aside class="sidebar"><div class="brand"><img class="brand-logo" src="assets/logo-gis-dev.png" alt="GIS Dev"><span>GeoDash <small>GIS Dev</small></span><button class="mobile-menu-close" aria-label="Cerrar menú">×</button></div>
         <div class="nav-title">SOBRE EL DASHBOARD</div>
-        <div class="filter-control">${texto}</div>
-        <div class="sidebar-bottom"><div class="logo-mapagonia"><img src="assets/logo-mapagonia.png"></div></div>
+        <div class="filter-control">${texto}<div class="logo-mapagonia"><img src="assets/logo-mapagonia.png"></div></div>
+        <div class="sidebar-bottom"></div>
       </aside>
       <main class="main"><header class="topbar"><button class="mobile-menu" aria-label="Abrir menú">☰</button>
       <div class="title-block"><h1>${esc(config.title)}</h1><p>${esc(config.subtitle)}</p></div>
