@@ -106,7 +106,10 @@
     return values.length;
   };
   const texto = `
-  AA
+  La información presentada en este DASHBOARD proviene de la Secretaría de Energía de la Nación, a través de la Subsecretaría de Eficiencia e Información Energética y la Dirección Nacional de Escenarios y Evaluación de Proyectos.
+ <br> <br> La capa llamada   <strong>Centrales de Generación de Energía Eléctrica   </strong>nos brinda información sobre las diferentes características, potencias, ubicación, y empresas a cargo de estas infraestructuras. 
+  <br> <br> Se propone esta herramienta de consulta e interacción para explorar la distribución territorial de las centrales eléctricas, identificar sus características y conocer las diferentes tecnologías que forman parte de la matriz de generación energética nacional.
+
   `;
   function shell(){
     const layerRows = (config.layers||[]).map(layer => `<label class="layer-row" title="${esc(layer.sourceName||layer.name)}"><input type="checkbox" data-layer-toggle="${esc(layer.id)}"${state.visible.has(layer.id)?" checked":""}><span class="layer-dot" style="background:${esc(layerBaseColor(layer.id))}"></span><span class="layer-name">${esc(layer.name)}</span><small>${(layerData[layer.id]?.features||[]).length}</small></label>`).join("") || "";
