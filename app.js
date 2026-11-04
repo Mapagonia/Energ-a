@@ -224,7 +224,7 @@
       }}).addTo(map);
       if(geo.getBounds().isValid())bounds.push(geo.getBounds());
     });
-    addLegend(map);
+    //addLegend(map);
     if(bounds.length){const all=L.latLngBounds([]);bounds.forEach(bound=>all.extend(bound));map.fitBounds(all.pad(.08),{maxZoom:16})}
     else map.setView([-34.6,-58.45],9);
     const selected=state.selected?state.featureLayers.get(state.selected):null;
