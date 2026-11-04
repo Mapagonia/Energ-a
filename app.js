@@ -105,7 +105,9 @@
     if (operation === "max") return Math.max(...values);
     return values.length;
   };
-
+  const texto = `
+  AA
+  `;
   function shell(){
     const layerRows = (config.layers||[]).map(layer => `<label class="layer-row" title="${esc(layer.sourceName||layer.name)}"><input type="checkbox" data-layer-toggle="${esc(layer.id)}"${state.visible.has(layer.id)?" checked":""}><span class="layer-dot" style="background:${esc(layerBaseColor(layer.id))}"></span><span class="layer-name">${esc(layer.name)}</span><small>${(layerData[layer.id]?.features||[]).length}</small></label>`).join("") || "";
     const filters = (config.widgets||[]).filter(w=>w.type==="filter").map(w=>{
@@ -114,19 +116,23 @@
     }).join("");
     document.querySelector("#app").innerHTML = `<div class="shell">
       <aside class="sidebar"><div class="brand"><img class="brand-logo" src="assets/logo-gis-dev.png" alt="GIS Dev"><span>GeoDash <small>GIS Dev</small></span></div>
-        <div class="nav-title">CAPAS PUBLICADAS</div>${layerRows || '<div class="filter-control">Sin capas cargadas</div>'}
-        ${filters ? `<div class="nav-title">FILTROS DEL DASHBOARD</div>${filters}`:""}
+        <div class="nav-title">SOBRE EL DASHBOARD</div>
+        <div class="filter-control">${texto}</div>
         <div class="sidebar-bottom"><label class="upload">＋ Cargar GeoJSON<input id="geoUpload" type="file" accept=".json,.geojson,application/geo+json"></label></div>
       </aside>
       <main class="main"><header class="topbar"><button class="mobile-menu" aria-label="Abrir menú">☰</button>
-        <div class="title-block"><h1>${esc(config.title)}</h1><p>${esc(config.subtitle)}</p></div>
-        <div class="top-actions"><div class="search-wrap"><input class="search" type="search" placeholder="Buscar por cualquier campo…" aria-label="Buscar"><button class="search-clear" aria-label="Limpiar búsqueda">×</button><div class="search-results"></div></div>
-          <button class="theme-toggle" title="Cambiar tema" aria-label="Cambiar tema">${state.dark?"☀":"◐"}</button><span class="status">● Datos listos</span></div>
+      <div class="title-block"><h1>${esc(config.title)}</h1><p>${esc(config.subtitle)}</p></div>
+      <div class="top-actions"><div class="search-wrap"><input class="search" type="search" placeholder="Buscar por cualquier campo…" aria-label="Buscar"><button class="search-clear" aria-label="Limpiar búsqueda">×</button><div class="search-results"></div></div>
+      <button class="theme-toggle" title="Cambiar tema" aria-label="Cambiar tema">${state.dark?"☀":"◐"}</button><span class="status">● Datos listos</span></div>
       </header><div class="active-bar"><div class="active-items"></div><button class="reset-all">↺ Volver a vista general</button></div>
       <div class="content"><section class="dashboard-grid" id="grid"></section></div></main>
-    </div>`;
+      </div>`;
   }
 
+  //<div class="nav-title">CAPAS PUBLICADAS</div>${layerRows || '<div class="filter-control">Sin capas cargadas</div>'}
+  //${filters ? `<div class="nav-title">FILTROS DEL DASHBOARD</div>${filters}`:""}
+  //<div class="sidebar-bottom"><label class="upload">＋ Cargar GeoJSON<input id="geoUpload" type="file" accept=".json,.geojson,application/geo+json"></label></div>
+  
   function autoLayouts(widgets){
     let x=0,y=Math.max(0,...widgets.filter(widget=>widget.layout).map(widget=>(Number(widget.layout.y)||0)+(Number(widget.layout.h)||3))),rowHeight=0;
     return widgets.map(widget=>{
