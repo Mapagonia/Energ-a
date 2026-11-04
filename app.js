@@ -316,6 +316,7 @@
     box.querySelectorAll("[data-search-feature]").forEach(button=>button.addEventListener("click",()=>{state.selected=button.dataset.searchFeature;box.classList.remove("open");render()}));
   }
   function resetAll(){state.filters={};state.search="";state.selected=null;state.extentEnabled=false;state.extentBounds=null;render()}
+  
   function bind(){
     document.querySelector(".mobile-menu").addEventListener("click",()=>document.querySelector(".sidebar").classList.toggle("open"));
     document.querySelector(".mobile-menu-close").addEventListener("click",()=>document.querySelector(".sidebar").classList.remove("open"));
@@ -328,6 +329,7 @@
     document.querySelectorAll("[data-layer-toggle]").forEach(box=>box.addEventListener("change",event=>{event.target.checked?state.visible.add(event.target.dataset.layerToggle):state.visible.delete(event.target.dataset.layerToggle);render()}));
     //document.querySelector("#geoUpload").addEventListener("change",event=>{const file=event.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result),id=`upload-${Date.now()}`;(data.features||[]).forEach((feature,index)=>feature._gdsid=`${id}:${index}`);data._meta={id,name:file.name.replace(/\.[^.]+$/,"") ,fields:Object.keys(data.features?.[0]?.properties||{})};layerData[id]=data;if(!Array.isArray(config.layers))config.layers=[];config.layers.push(data._meta);state.visible.add(id);shell();bind();render();toast("Capa añadida al dashboard")}catch{toast("El archivo no es un GeoJSON válido")}};reader.readAsText(file)});
   }
+
   function toast(message){const node=document.createElement("div");node.className="toast";node.textContent=message;document.body.appendChild(node);setTimeout(()=>node.remove(),2800)}
   shell();bind();render();
 })();
