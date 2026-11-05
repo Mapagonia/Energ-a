@@ -11,6 +11,7 @@ button{cursor:pointer}
 .brand small{display:block;color:#ff4a4a;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
 .nav-title{font-size:10px;color:#7f8aa2;letter-spacing:.14em;font-weight:800;margin:18px 8px 10px}
 .filter-control{font-size:12px;text-align: justify;}
+.logo-mapagonia{padding-top: 10px;}
 .logo-mapagonia img{height: 68px; width: auto; border-radius: 50%; background: #000; display: block; margin: 0 auto; bottom:50px;}
 .layer-row,.filter-control{background:#1d2437;border:1px solid #2a334a;border-radius:11px;margin:6px 0;padding:10px 11px}
 .layer-row{display:flex;align-items:center;gap:9px;font-size:13px}
@@ -81,6 +82,6 @@ td.numeric{text-align:right;font-variant-numeric:tabular-nums}.locate-col{width:
     display: none;
 }
 @media(max-width:1000px){.shell{grid-template-columns:220px 1fr}.content{padding:20px}.topbar{padding:0 20px}.dashboard-grid{grid-auto-rows:72px}}
-@media(max-width:760px){.logo-mapagonia{padding-top: 10px;}.mobile-menu-close{display:block}.shell{display:block}.sidebar{position:fixed;left:0;transform:translateX(-100%);transition:.22s ease;width:280px}.sidebar.open{transform:none}.mobile-menu{display:block}.topbar{height:72px}.active-bar{top:72px;padding:7px 14px}.title-block h1{font-size:16px}.title-block p,.status{display:none}.search{width:170px}.content{padding:14px}.dashboard-grid{display:block}.card{grid-column:1!important;grid-row:auto!important;margin-bottom:14px;min-height:210px;max-height: 400px;}.kpi-card{min-height:160px}.map-card{height:62vh;min-height:430px}.table-wrap{min-height:380px}.chart-wrap{height:300px}.table-footer{display:block}.table-footer span{display:block;margin:3px 0}}
+@media(max-width:760px){.mobile-menu-close{display:block}.shell{display:block}.sidebar{position:fixed;left:0;transform:translateX(-100%);transition:.22s ease;width:280px}.sidebar.open{transform:none}.mobile-menu{display:block}.topbar{height:72px}.active-bar{top:72px;padding:7px 14px}.title-block h1{font-size:16px}.title-block p,.status{display:none}.search{width:170px}.content{padding:14px}.dashboard-grid{display:block}.card{grid-column:1!important;grid-row:auto!important;margin-bottom:14px;min-height:210px;max-height: 400px;}.kpi-card{min-height:160px}.map-card{height:62vh;min-height:430px}.table-wrap{min-height:380px}.chart-wrap{height:300px}.table-footer{display:block}.table-footer span{display:block;margin:3px 0}}
 @media(max-width:460px){.topbar{padding:0 12px;gap:10px}.search{width:105px}.content{padding:10px}.card{border-radius:14px}.card-head{padding:14px 14px 10px}.card-body{padding:0 14px 14px}}
 @media(max-width:460px){.extent-filter-control span{display:none}.extent-filter-control{padding:9px 11px}}
